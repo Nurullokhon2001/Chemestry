@@ -1,18 +1,58 @@
 package com.example.hemistry
 
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.SuperscriptSpan
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
+import com.example.hemistry.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
+
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initViews()
+    }
 
-        val string = SpannableString("1st example")
-        string.setSpan(SuperscriptSpan(), 1, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+    private fun initViews() {
+        val navController = findNavController(R.id.fragment)
+        val appBatConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.tableListFragment,
+                R.id.testFragment,
+                R.id.settingsFragment
+            ),
+            fallbackOnNavigateUpListener = {
+                Toast.makeText(this, "123", Toast.LENGTH_SHORT).show()
+                return@AppBarConfiguration true
+            }
+        )
+
+        binding.toolbar.setupWithNavController(navController, appBatConfiguration)
+        binding.bottomNavigation.setupWithNavController(
+            navController
+        )
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            if (destination.id == R.id.detailsFragment) {
+//                binding.bottomNavigation.isVisible = false
+//            } else {
+//                binding.bottomNavigation.isVisible = true
+//            }
+            binding.bottomNavigation.isVisible = destination.id != R.id.detailsFragment
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
