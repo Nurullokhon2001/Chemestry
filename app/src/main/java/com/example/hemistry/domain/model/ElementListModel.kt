@@ -1,7 +1,7 @@
 package com.example.hemistry.domain.model
 
 
-data class TableListModel(
+data class ElementListModel(
     val id: Int,
     val name: String,
     val weight: String,

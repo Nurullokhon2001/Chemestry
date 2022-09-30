@@ -1,7 +1,6 @@
 package com.example.hemistry
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragment)
         val appBatConfiguration = AppBarConfiguration(
             setOf(
-                R.id.tableListFragment,
+                R.id.elementListFragment,
                 R.id.testFragment,
                 R.id.settingsFragment
             ),

@@ -9,4 +9,4 @@
     android:layout_height="match_parent"
     tools:listitem="@layout/item_table_list"
     tools:itemCount="10"
-    tools:context=".presentation.table_list.TableListFragment" />
+    tools:context=".presentation.element_list.ElementListFragment" />

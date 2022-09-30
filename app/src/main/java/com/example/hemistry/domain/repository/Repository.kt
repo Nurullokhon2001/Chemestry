@@ -1,7 +1,8 @@
 package com.example.hemistry.domain.repository
 
-import com.example.hemistry.domain.model.TableListModel
+import com.example.hemistry.domain.model.ElementListModel
 
 interface Repository {
-    fun getTableList(): List<TableListModel>
+    fun getElementList(): List<ElementListModel>
+    fun getElementsById(id : Int):ElementListModel
 }

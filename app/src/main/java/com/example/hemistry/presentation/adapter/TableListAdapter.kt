@@ -7,24 +7,29 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hemistry.R
 import com.example.hemistry.databinding.ItemTableListBinding
-import com.example.hemistry.domain.model.TableListModel
+import com.example.hemistry.domain.model.ElementListModel
 import com.example.hemistry.presentation.adapter.TableListAdapter.*
 
-class TableListAdapter : ListAdapter<TableListModel, ViewHolder>(ItemCallback) {
-    class ViewHolder(private val binding: ItemTableListBinding) :
+class TableListAdapter(
+   private val tableListClickListener: (Int) -> Unit
+) : ListAdapter<ElementListModel, ViewHolder>(ItemCallback) {
+    inner class ViewHolder(private val binding: ItemTableListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun setData(model: TableListModel) {
+        fun setData(model: ElementListModel) {
             with(binding) {
                 tableName.text = model.name
                 tableId.text = model.id.toString()
                 tableWeight.text = model.weight
                 alphabet.text = model.alphabet
-                tableGroup.text= model.group
+                tableGroup.text = model.group
                 when (model.category) {
                     1 -> alphabet.setTextColor(setColors(R.color.s_elements))
                     2 -> alphabet.setTextColor(setColors(R.color.p_elements))
                     3 -> alphabet.setTextColor(setColors(R.color.d_elements))
                     4 -> alphabet.setTextColor(setColors(R.color.f_elements))
+                }
+                binding.root.setOnClickListener {
+                    tableListClickListener.invoke(model.id)
                 }
             }
         }
@@ -45,12 +50,12 @@ class TableListAdapter : ListAdapter<TableListModel, ViewHolder>(ItemCallback) {
     }
 
 
-    object ItemCallback : DiffUtil.ItemCallback<TableListModel>() {
-        override fun areItemsTheSame(oldItem: TableListModel, newItem: TableListModel): Boolean {
+    object ItemCallback : DiffUtil.ItemCallback<ElementListModel>() {
+        override fun areItemsTheSame(oldItem: ElementListModel, newItem: ElementListModel): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: TableListModel, newItem: TableListModel): Boolean {
+        override fun areContentsTheSame(oldItem: ElementListModel, newItem: ElementListModel): Boolean {
             return oldItem == newItem
         }
     }

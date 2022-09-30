@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/tableListFragment">
+    app:startDestination="@id/elementListFragment">
 
     <fragment
-        android:id="@+id/tableListFragment"
-        android:name="com.example.hemistry.presentation.table_list.TableListFragment"
+        android:id="@+id/elementListFragment"
+        android:name="com.example.hemistry.presentation.element_list.ElementListFragment"
         android:label="fragment_table_list"
-        tools:layout="@layout/fragment_table_list" >
+        tools:layout="@layout/fragment_element_list" >
         <action
-            android:id="@+id/action_tableListFragment_to_detailsFragment"
+            android:id="@+id/action_elementListFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
@@ -21,7 +21,11 @@
         tools:layout="@layout/fragment_details" >
         <action
             android:id="@+id/action_detailsFragment_to_tableListFragment"
-            app:destination="@id/tableListFragment" />
+            app:destination="@id/elementListFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

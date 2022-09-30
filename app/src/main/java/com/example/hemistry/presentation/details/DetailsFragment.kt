@@ -5,16 +5,56 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.hemistry.R
+import com.example.hemistry.databinding.FragmentDetailsBinding
+import com.example.hemistry.domain.model.ElementListModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
+
+    private val args: DetailsFragmentArgs by navArgs()
+
+    private val viewModel by viewModels<DetailsViewModel>()
+
+    private var _binding: FragmentDetailsBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details, container, false)
+    ): View {
+        _binding = FragmentDetailsBinding.inflate(layoutInflater, container, false)
+        viewModel.getElementsById(args.id).observe(viewLifecycleOwner) {
+            setElementData(it)
+        }
+        return binding.root
+    }
+
+    private fun setElementData(element: ElementListModel) {
+        with(binding) {
+            tableName.text = element.name
+            tableId.text = element.id.toString()
+            tableWeight.text = element.weight
+            alphabet.text = element.alphabet
+            tableGroup.text = element.group
+            when (element.category) {
+                1 -> alphabet.setTextColor(setColors(R.color.s_elements))
+                2 -> alphabet.setTextColor(setColors(R.color.p_elements))
+                3 -> alphabet.setTextColor(setColors(R.color.d_elements))
+                4 -> alphabet.setTextColor(setColors(R.color.f_elements))
+            }
+        }
+    }
+
+    private fun setColors(color: Int): Int {
+        return binding.tableId.context.getColor(color)
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }
