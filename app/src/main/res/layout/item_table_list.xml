@@ -11,22 +11,22 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@id/text2"
+            android:id="@+id/table_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="1"
+            tools:text="111"
             tools:textColor="#000000" />
 
         <TextView
-            android:id="@+id/text1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/alphabet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="70sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -37,41 +37,48 @@
             tools:textColor="#B64E4E" />
 
         <TextView
+            android:id="@+id/table_weight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center"
             android:maxLines="1"
-            android:textSize="20sp"
+            android:textColor="#57B0D3"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/text1"
-            app:layout_constraintStart_toEndOf="@id/text2"
-            tools:text="126.9045±1"
-            tools:textColor="#57B0D3" />
+            app:layout_constraintEnd_toStartOf="@id/alphabet"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="126.9045±1" />
 
         <TextView
+            android:id="@+id/table_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center"
-            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#57B0D3"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text1"
-            tools:text="Водород"
-            tools:textColor="#57B0D3" />
+            app:layout_constraintStart_toEndOf="@id/alphabet"
+            tools:text="Водород" />
 
         <TextView
+            android:id="@+id/table_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:textSize="30sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="1s1"
+            tools:text="1"
             tools:textColor="#000000" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

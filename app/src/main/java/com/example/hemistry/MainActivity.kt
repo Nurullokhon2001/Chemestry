@@ -8,8 +8,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.hemistry.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
@@ -30,10 +31,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.testFragment,
                 R.id.settingsFragment
             ),
-            fallbackOnNavigateUpListener = {
-                Toast.makeText(this, "123", Toast.LENGTH_SHORT).show()
-                return@AppBarConfiguration true
-            }
         )
 
         binding.toolbar.setupWithNavController(navController, appBatConfiguration)
