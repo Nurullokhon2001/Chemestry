@@ -7,27 +7,31 @@
 
 
     <TextView
-        android:id="@+id/first_label"
+        android:id="@+id/element_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        android:textColor="#416471"
         android:text="@string/first"
         android:textSize="15sp"
+        android:textIsSelectable="true"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/first_desc"
+        android:id="@+id/element_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
+        android:textColor="#416471"
+        android:textIsSelectable="true"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_label"
+        app:layout_constraintTop_toBottomOf="@+id/element_label"
         tools:text="2,1" />
 
     <View
@@ -37,6 +41,6 @@
         android:background="#494848"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/first_desc" />
+        app:layout_constraintTop_toBottomOf="@id/element_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

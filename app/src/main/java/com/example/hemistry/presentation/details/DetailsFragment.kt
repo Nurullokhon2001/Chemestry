@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.hemistry.R
 import com.example.hemistry.databinding.FragmentDetailsBinding
+import com.example.hemistry.domain.model.ElementDetailsModel
 import com.example.hemistry.domain.model.ElementListModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,26 +28,46 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDetailsBinding.inflate(layoutInflater, container, false)
+
         viewModel.getElementsById(args.id).observe(viewLifecycleOwner) {
             setElementData(it)
+        }
+        viewModel.getDetailsElementById(args.id).observe(viewLifecycleOwner) {
+            setDetailsElement(it)
         }
         return binding.root
     }
 
-    private fun setElementData(element: ElementListModel) {
-        with(binding) {
-            tableName.text = element.name
-            tableId.text = element.id.toString()
-            tableWeight.text = element.weight
-            alphabet.text = element.alphabet
-            tableGroup.text = element.group
-            when (element.category) {
-                1 -> alphabet.setTextColor(setColors(R.color.s_elements))
-                2 -> alphabet.setTextColor(setColors(R.color.p_elements))
-                3 -> alphabet.setTextColor(setColors(R.color.d_elements))
-                4 -> alphabet.setTextColor(setColors(R.color.f_elements))
-            }
+    private fun setElementData(element: ElementListModel) = with(binding) {
+        tableName.text = element.name
+        tableId.text = element.id.toString()
+        tableWeight.text = element.weight
+        alphabet.text = element.alphabet
+        tableGroup.text = element.group
+        when (element.category) {
+            1 -> alphabet.setTextColor(setColors(R.color.s_elements))
+            2 -> alphabet.setTextColor(setColors(R.color.p_elements))
+            3 -> alphabet.setTextColor(setColors(R.color.d_elements))
+            4 -> alphabet.setTextColor(setColors(R.color.f_elements))
         }
+    }
+
+    private fun setDetailsElement(elementDetailsModel: ElementDetailsModel) = with(binding) {
+        first.elementLabel.text = "Электроманфии нисбӣ (мувофиқи Полинг):"
+        second.elementLabel.text = "Ҳарорати обшавӣ:"
+        third.elementLabel.text = "Ҳарорати ҷӯшиш:"
+        fourth.elementLabel.text = "Қобилияти гармидиҳӣ:"
+        fives.elementLabel.text = "Зичӣ:"
+        six.elementLabel.text = "Ихтироъ:"
+
+        first.elementDesc.text = elementDetailsModel.first
+        second.elementDesc.text = elementDetailsModel.second
+        third.elementDesc.text = elementDetailsModel.third
+        fourth.elementDesc.text = elementDetailsModel.fourth
+        fives.elementDesc.text = elementDetailsModel.fives
+        six.elementDesc.text = elementDetailsModel.six
+
+
     }
 
     private fun setColors(color: Int): Int {

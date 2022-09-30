@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    app:cardBackgroundColor="#6D3F4E57"
     android:layout_height="wrap_content"
     android:layout_margin="20dp">
 
@@ -44,7 +45,7 @@
             android:layout_marginBottom="15dp"
             android:gravity="center"
             android:maxLines="1"
-            android:textColor="#57B0D3"
+            android:textColor="#416471"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/alphabet"
@@ -60,7 +61,7 @@
             android:layout_marginBottom="15dp"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="#57B0D3"
+            android:textColor="#416471"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/alphabet"
