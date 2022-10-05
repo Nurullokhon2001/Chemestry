@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/drawable/correct_option_border_bg.xml" value="0.1635" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/drawable/default_option_border_bg.xml" value="0.175" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/drawable/selected_option_border_bg.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/font/roboto.xml" value="0.21003861003861005" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/font/roboto_bold.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/layout/fragment_details.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/layout/fragment_element_list.xml" value="0.1526268115942029" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/layout/fragment_finish_test.xml" value="0.1598731884057971" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/layout/fragment_questions.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/layout/fragment_settings.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/layout/fragment_table_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/hemistry/app/src/main/res/layout/fragment_test.xml" value="0.25416666666666665" />

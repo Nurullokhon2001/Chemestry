@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/elementListFragment"
         android:name="com.example.hemistry.presentation.element_list.ElementListFragment"
-        android:label="fragment_table_list"
-        tools:layout="@layout/fragment_element_list" >
+        android:label="Ҷадвал"
+        tools:layout="@layout/fragment_element_list">
         <action
             android:id="@+id/action_elementListFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -17,24 +17,49 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.hemistry.presentation.details.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
+        android:label="Маълумот"
+        tools:layout="@layout/fragment_details">
         <action
             android:id="@+id/action_detailsFragment_to_tableListFragment"
             app:destination="@id/elementListFragment" />
         <argument
             android:name="id"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.hemistry.presentation.settings.SettingsFragment"
-        android:label="fragment_settings"
+        android:label="Танзимот"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.example.hemistry.presentation.test.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+        android:name="com.example.hemistry.presentation.questions.test.TestFragment"
+        android:label="Тест"
+        tools:layout="@layout/fragment_test">
+        <action
+            android:id="@+id/action_testFragment_to_finishTestFragment"
+            app:destination="@id/finishTestFragment"
+            app:popUpTo="@+id/testFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishTestFragment"
+        android:name="com.example.hemistry.presentation.questions.finish_test.FinishTestFragment"
+        android:label="Итмоми тест"
+        tools:layout="@layout/fragment_finish_test">
+        <argument
+            android:name="correctAnswer"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionsFragment"
+        android:name="com.example.hemistry.presentation.questions.questions_list.QuestionsFragment"
+        android:label="Савол"
+        tools:layout="@layout/fragment_questions">
+        <action
+            android:id="@+id/action_questionsFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
 </navigation>

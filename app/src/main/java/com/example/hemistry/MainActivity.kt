@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val appBatConfiguration = AppBarConfiguration(
             setOf(
                 R.id.elementListFragment,
-                R.id.testFragment,
+                R.id.questionsFragment,
                 R.id.settingsFragment
             ),
         )
@@ -38,12 +38,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-//            if (destination.id == R.id.detailsFragment) {
-//                binding.bottomNavigation.isVisible = false
-//            } else {
-//                binding.bottomNavigation.isVisible = true
-//            }
-            binding.bottomNavigation.isVisible = destination.id != R.id.detailsFragment
+            binding.bottomNavigation.isVisible =
+                !(destination.id == R.id.detailsFragment &&
+                        destination.id != R.id.testFragment &&
+                        destination.id != R.id.finishTestFragment)
         }
     }
 

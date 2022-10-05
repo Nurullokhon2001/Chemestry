@@ -3,6 +3,7 @@ package com.example.hemistry.data
 import com.example.hemistry.data.data.Elements
 import com.example.hemistry.domain.model.ElementDetailsModel
 import com.example.hemistry.domain.model.ElementListModel
+import com.example.hemistry.domain.model.Question
 import com.example.hemistry.domain.repository.Repository
 
 class RepositoryImpl(
@@ -18,6 +19,10 @@ class RepositoryImpl(
     }
 
     override fun getDetailsElementById(id: Int): ElementDetailsModel {
-       return elements.getDetailsElementById(id)
+        return elements.getDetailsElementById(id)
+    }
+
+    override fun getQuestions(): List<Question> {
+        return elements.getQuestions()
     }
 }

@@ -38,4 +38,8 @@ class ElementListFragment : Fragment() {
         binding.list.adapter = adapter
         return binding.root
     }
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
+    }
 }
