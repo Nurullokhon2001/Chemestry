@@ -19,7 +19,7 @@ class FinishTestFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View{
+    ): View {
         _binding = FragmentFinishTestBinding.inflate(layoutInflater, container, false)
         binding.correctAnswer.text = "Ҷавоби дуруст ${args.correctAnswer} - то"
         return binding.root

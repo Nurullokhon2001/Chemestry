@@ -11,8 +11,8 @@
         android:icon="@drawable/ic_baseline_speaker_notes_24"
         android:title="Саволҳо" />
 
-    <item
-        android:id="@+id/settingsFragment"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Танзимотҳо" />
+<!--    <item-->
+<!--        android:id="@+id/settingsFragment"-->
+<!--        android:icon="@drawable/ic_baseline_settings_24"-->
+<!--        android:title="Танзимотҳо" />-->
 </menu>
